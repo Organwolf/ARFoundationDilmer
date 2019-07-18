@@ -44,13 +44,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Selection.unity
     guid: b4f638280fab24a3bb56d2c962ac75e1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SelectionAndOverlayText.unity
     guid: bde958fead16c4a5c86127ed4ca1efe8
   - enabled: 0
     path: Assets/Scenes/CloudPointPlacement_.unity
     guid: 704a54a5b0a2f69448cc28b7a016f882
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/DraggingAndDroppingStuff_.unity
     guid: 86263edf4e9490d46915f2b11419fe6b
   - enabled: 0

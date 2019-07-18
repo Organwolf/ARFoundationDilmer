@@ -24,6 +24,8 @@ public class PlacementWithDragging_ : MonoBehaviour
 
     private ARRaycastManager arRaycastManager;
 
+    private ARPlaneManager planeManager;
+
     private bool onTouchHold = false;
 
     private static List<ARRaycastHit> hits = new List<ARRaycastHit>();
@@ -32,6 +34,10 @@ public class PlacementWithDragging_ : MonoBehaviour
     {
         arRaycastManager = GetComponent<ARRaycastManager>();
         dismissButton.onClick.AddListener(Dismiss);
+
+        // get a reference to the ARPlaneManager as well
+        planeManager = GetComponent<ARPlaneManager>();
+
     }
     private void Dismiss() => welcomePanel.SetActive(false);
 
@@ -74,16 +80,19 @@ public class PlacementWithDragging_ : MonoBehaviour
         {
             Pose hitPose = hits[0].pose;
 
-            if(placedObject == null)
+            var plane = planeManager.GetPlane(hits[0].trackableId);
+
+            if(placedObject == null && plane.alignment == UnityEngine.XR.ARSubsystems.PlaneAlignment.HorizontalUp)
             {
                 placedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation);
             }
             else
             {
-                if(onTouchHold)
+                // Is onTouchHold true and is it on a horizontal plane?
+                if(onTouchHold && plane.alignment == UnityEngine.XR.ARSubsystems.PlaneAlignment.HorizontalUp)
                 {
-                placedObject.transform.position = hitPose.position;
-                placedObject.transform.rotation = hitPose.rotation;
+                    placedObject.transform.position = hitPose.position;
+                    placedObject.transform.rotation = hitPose.rotation;
                 }
             }
         }
