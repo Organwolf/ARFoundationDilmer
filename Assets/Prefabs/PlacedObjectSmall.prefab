@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsSelected: 0
   OverlayText: {fileID: 0}
-  OverlayDisplayText: Large Small 1
+  OverlayDisplayText: Large Small 4
 --- !u!1 &4843964530787767115
 GameObject:
   m_ObjectHideFlags: 0

@@ -106,8 +106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsSelected: 0
-  OverlayText: {fileID: 0}
-  OverlayDisplayText: Large Sphere 1
+  OverlayText: {fileID: 3457634711906628619}
+  OverlayDisplayText: Large Sphere
 --- !u!1 &6820078771812939901
 GameObject:
   m_ObjectHideFlags: 0
