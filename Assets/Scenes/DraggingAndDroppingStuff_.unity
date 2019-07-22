@@ -505,7 +505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b109cff06845765449c0f15d3e2199d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placedPrefab: {fileID: 3943361539576728579, guid: 25013dc81568840c0adedb67dd6bdd58,
+  placedPrefab: {fileID: 3943361539576728579, guid: 2ef80c909586e3449a9c7f7b715aa4f7,
     type: 3}
   welcomePanel: {fileID: 73238348}
   dismissButton: {fileID: 1702414560}
