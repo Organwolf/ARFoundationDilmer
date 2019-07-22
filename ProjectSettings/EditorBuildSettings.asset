@@ -50,13 +50,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/CloudPointPlacement_.unity
     guid: 704a54a5b0a2f69448cc28b7a016f882
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/DraggingAndDroppingStuff_.unity
     guid: 86263edf4e9490d46915f2b11419fe6b
   - enabled: 0
     path: Assets/Scenes/SelectionOverLay_.unity
     guid: c1b275987c543e7428b8395901291cee
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/EnableAndDisablePlaneDetection.unity
     guid: cbf9052b8475e7842b0ee4a1b927a5ef
   m_configObjects: {}

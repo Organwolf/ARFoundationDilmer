@@ -13,7 +13,7 @@ public class PlacementWithDragging_ : MonoBehaviour
     private GameObject welcomePanel;
 
     [SerializeField]
-    private Button dismissButton;
+    private Button dismissButton, toggleButton;
 
     [SerializeField]
     private Camera arCamera;
@@ -38,8 +38,27 @@ public class PlacementWithDragging_ : MonoBehaviour
         // get a reference to the ARPlaneManager as well
         planeManager = GetComponent<ARPlaneManager>();
 
+        if (toggleButton != null)
+        {
+            toggleButton.onClick.AddListener(TogglePlaneDetection);
+        }
+
     }
     private void Dismiss() => welcomePanel.SetActive(false);
+
+    private void TogglePlaneDetection()
+    {
+        planeManager.enabled = !planeManager.enabled;
+
+        // Go though each plane
+        foreach (ARPlane plane in planeManager.trackables)
+        {
+            plane.gameObject.SetActive(planeManager.enabled);
+        }
+
+        toggleButton.GetComponentInChildren<Text>().text = planeManager.enabled ?
+            "Disable Plane Detection" : "Enable Plane Deteciton";
+    }
 
     void Update()
     {
@@ -82,6 +101,8 @@ public class PlacementWithDragging_ : MonoBehaviour
 
             var plane = planeManager.GetPlane(hits[0].trackableId);
 
+
+            // Logic for initializing the prefab on horizontal planes only
             if(placedObject == null && plane.alignment == UnityEngine.XR.ARSubsystems.PlaneAlignment.HorizontalUp)
             {
                 placedObject = Instantiate(placedPrefab, hitPose.position, hitPose.rotation);
