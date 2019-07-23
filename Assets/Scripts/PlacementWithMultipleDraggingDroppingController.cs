@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 
@@ -18,7 +19,7 @@ public class PlacementWithMultipleDraggingDroppingController : MonoBehaviour
     [SerializeField]
     private Camera arCamera;
 
-    private PlacementObject[] placedObjects;
+    //private PlacementObject[] placedObjects;
 
     private Vector2 touchPosition = default;
 
@@ -84,7 +85,12 @@ public class PlacementWithMultipleDraggingDroppingController : MonoBehaviour
         if(Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            
+
+            if (EventSystem.current.IsPointerOverGameObject(0))
+            {
+                return;
+            }
+
             touchPosition = touch.position;
 
             if(touch.phase == TouchPhase.Began)
